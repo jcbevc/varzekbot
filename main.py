@@ -43,7 +43,7 @@ async def video(ctx):
 
 @bot.command()
 async def commandes(ctx):
-    await ctx.send("les commandes sont pour l'instant :\n1 !regles : permet de voir les règles\n2 !epic : permet de voir l'epic de varzek\n3 !insta : pareil que l'epic pes pour insta\n4 !twitter : idem mais pour twitter*\n5 !twitch : * mais pour twitch \n6 !video : permet de voir la dèrnière vidéo posté par varzek\n7 !leak : permet de voir les derniers leak de varzek(je dédicace jcbevc parce que c'est lui qui donne quelques leak et non je ne fais pas ça parce que c'est lui qui me programme) *siflotte* :sweat_smile:")
+    await ctx.send("les commandes sont pour l'instant :\n1 !regles : permet de voir les règles\n2 !epic : permet de voir l'epic de varzek\n3 !insta : pareil que l'epic pes pour insta\n4 !twitter : idem mais pour twitter*\n5 !twitch : * mais pour twitch \n6 !video : permet de voir la dèrnière vidéo posté par varzek\n7 !gith : premet de voir de code du bot\n8 !leak : permet de voir les derniers leak de varzek(je dédicace jcbevc parce que c'est lui qui donne quelques leak et non je ne fais pas ça parce que c'est lui qui me programme) *siflotte* :sweat_smile:")
 
 @bot.command()
 @commands.has_permissions(administrator=True)
@@ -51,17 +51,29 @@ async def ban(ctx, membre: discord.Member):
     await membre.send("t'as été ban t'avais cas a faire le gentil toutou, cheh")
     await membre.ban()
 
-@bot.command()
-async def leak(ctx):
-    await ctx.send("voiçi le dernièr leak de varzek\n\nenfin moi et yanteh")
-    await ctx.send("https://www.instagram.com/p/CEdw3RjpoUJ/")
-
-
 @ban.error
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("frr tas cruy tallais ban des gens comm ça eh vazy tum dégoute j'vais t'ban")
 
-token = "NzQyNjcyMzg2ODU1MjcyNTQw.XzJhjw.eiJVmLTryxsMouPBXNWN6ubr_Kc"
+@bot.command()
+async def leak(ctx):
+    await ctx.send("voiçi le dernièr leak de varzek\n\nenfin moi et yanteh")
+    await ctx.send("https://www.instagram.com/p/CEdw3RjpoUJ/")
+
+@bot.command()
+async def hey(ctx):
+    await ctx.send("hey l'ami, ça va?, fais !commandes pour avoir la liste des commandes")
+
+@bot.command()
+async def pervers(ctx):
+    await ctx.send("veut tu palper mes commandes")
+
+@bot.command()
+async def gith(ctx):
+    await ctx.send("voici le github du varzekbot")
+    await ctx.send("https://github.com/jcbevc/varzekbot")
+
+token = "NzQyNjcyMzg2ODU1MjcyNTQw.XzJhjw.p-XkJVA3YqaRAgo0xJQViv4ACB0"
 
 bot.run(token)
